@@ -87,27 +87,6 @@ const animateSkills = () => {
 
 // Contact form submission
 
-emailjs.init("qIqNbuv0JqN_XXLWR"); 
-
-// Add event listener to the form
-document.addEventListener("DOMContentLoaded", function () {
-    const form = document.getElementById("contactForm");
-
-    if (form) {
-        form.addEventListener("submit", function (e) {
-            e.preventDefault();
-
-            emailjs.sendForm("service_5mn79b2", "template_aflcp47", form)
-                .then(function () {
-                    alert("Message sent successfully!");
-                    form.reset();
-                }, function (error) {
-                    alert("Failed to send message. Please try again.");
-                    console.error("EmailJS error:", error);
-                });
-        });
-    }
-});
 
   // Optional: Reset form after a delay
   setTimeout(() => {
