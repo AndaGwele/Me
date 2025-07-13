@@ -86,26 +86,28 @@ const animateSkills = () => {
 }
 
 // Contact form submission
-const contactForm = document.getElementById("contactForm");
 
-contactForm.addEventListener("submit", (e) => {
-  e.preventDefault();
+emailjs.init("qIqNbuv0JqN_XXLWR"); 
 
-  // Get form values
-  const name = document.getElementById("name").value;
-  const email = document.getElementById("email").value;
-  const subject = document.getElementById("subject").value;
-  const message = document.getElementById("message").value;
+// Add event listener to the form
+document.addEventListener("DOMContentLoaded", function () {
+    const form = document.getElementById("contactForm");
 
-  // Encode the values for URL
-  const encodedSubject = encodeURIComponent(subject);
-  const encodedBody = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`);
+    if (form) {
+        form.addEventListener("submit", function (e) {
+            e.preventDefault();
 
-  // Create mailto link
-  const mailtoLink = `mailto:AndaGwele1@gmail.com?subject=${encodedSubject}&body=${encodedBody}`;
-
-  // Open default email client
-  window.location.href = mailtoLink;
+            emailjs.sendForm("service_5mn79b2", "template_aflcp47", form)
+                .then(function () {
+                    alert("Message sent successfully!");
+                    form.reset();
+                }, function (error) {
+                    alert("Failed to send message. Please try again.");
+                    console.error("EmailJS error:", error);
+                });
+        });
+    }
+});
 
   // Optional: Reset form after a delay
   setTimeout(() => {
