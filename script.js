@@ -89,10 +89,10 @@ const animateSkills = () => {
 
 
   // Optional: Reset form after a delay
-  setTimeout(() => {
-    contactForm.reset();
-  }, 1000);
-);
+setTimeout(() => {
+  contactForm.reset();
+}, 1000);
+
 
 // Initialize animations on page load
 window.addEventListener("load", () => {
