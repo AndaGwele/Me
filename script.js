@@ -92,7 +92,7 @@ const animateSkills = () => {
   setTimeout(() => {
     contactForm.reset();
   }, 1000);
-});
+);
 
 // Initialize animations on page load
 window.addEventListener("load", () => {
